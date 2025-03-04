@@ -93,4 +93,19 @@ def edit_record(records, student_id):
                 return
             except ValueError:
                 print("Invalid input. Please enter valid numbers for grades.")
-    print("Student ID not found.")       
+    print("Student ID not found.")
+    
+def delete_record(records, student_id):
+    """Deletes a student record."""
+    for i, record in enumerate(records):
+        if record[0] == student_id:
+            del records[i]
+            print("Record deleted successfully.")
+            return
+    print("Student ID not found.") 
+    
+def main():
+    records = []
+    filename = ""         
+    
+    
