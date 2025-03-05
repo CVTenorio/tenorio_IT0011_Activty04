@@ -5,7 +5,6 @@ def grade_calculation(class_standing, major_exam):
     return 0.6 * class_standing + 0.4 * major_exam
 
 def record_display(record):
-    # Displays a single student record
     print(f"Student ID: {record[0]}")
     print(f"Student Name: {record[1][0]} {record[1][1]}")
     print(f"Class Standing: {record[2]}")
@@ -17,7 +16,7 @@ def file_open(records, filename):
     try:
         with open(filename, 'r', newline='', encoding='utf-8') as file:
             reader = csv.reader(file)
-            next(reader, None)  # Skip header
+            next(reader, None)  
             for row in reader:
                 records.append((int(row[0]), (row[1], row[2]), float(row[3]), float(row[4])))
         print(f"File '{filename}' opened successfully.")
