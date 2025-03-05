@@ -108,4 +108,62 @@ def main():
     records = []
     filename = ""         
     
+while True:
+    print("\nRecord Management Program")
+    print("1. Open File")
+    print("2. Save File")
+    print("3. Save As File")
+    print("4. Show All Students (Order by Last Name)")
+    print("5. Show All Students (Order by Grade)")
+    print("6. Show All Student Record")
+    print("7. Add Record")
+    print("8. Edit Record")
+    print("9. Delete Record")
+    print("0. Exit")
+
+    choice = input ("Enter your choice from the menu section: ")
+
+    if choice == '1':
+        filename = input ("Enter filename: ")
+            file_open(records, filename)
+        elif choice == '2':
+        if filename:
+                save_file(records, filename)
+        else:
+                print("Please open a file first.")
+        elif choice == '3':
+            save_as_file(records)
+        elif choice == '4':
+            show_all_students_order_by_last_name(records)
+        elif choice == '5':
+            show_all_students_order_by_grade(records)
+        elif choice == '6':
+            try:
+                student_id = int(input("Enter Student ID: "))
+                show_student_record(records, student_id)
+            except ValueError:
+                print("Invalid input. Please enter a valid student ID.")
+        elif choice == '7':
+            add_record(records)
+        elif choice == '8':
+            try:
+                student_id = int(input("Enter Student ID to edit: "))
+                edit_record(records, student_id)
+            except ValueError:
+                print("Invalid input. Please enter a valid student ID.")
+        elif choice == '9':
+            try:
+                student_id = int(input("Enter Student ID to delete: "))
+                delete_record(records, student_id)
+            except ValueError:
+                print("Invalid input. Please enter a valid student ID.")
+        elif choice == '0':
+            print("Exiting program.")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
+
     
